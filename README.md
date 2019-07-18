@@ -2,6 +2,10 @@
 
 本模块可以用于爬虫模拟登录长安大学信息门户
 
+# 我的博客相关内容
+
+- [学校信息门户模拟登录之密码加密](https://hanechiri.github.io/post/portal_login_encrypt/#more)
+
 # 构成
 
 
