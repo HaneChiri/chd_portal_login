@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))#获取绝对路径
 sys.path.append(BASE_DIR+'\\..')
 
 from portal_login.encrypt import *
-
+import requests
 
 from bs4 import BeautifulSoup
 

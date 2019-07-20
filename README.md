@@ -5,6 +5,7 @@
 # 我的博客相关内容
 
 - [学校信息门户模拟登录之密码加密](https://hanechiri.github.io/post/portal_login_encrypt/#more)
+- [学校信息门户模拟登录](https://hanechiri.github.io/post/portal_login/#more)
 
 # 构成
 
