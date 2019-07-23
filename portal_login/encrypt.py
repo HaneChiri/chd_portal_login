@@ -93,4 +93,4 @@ if __name__ == '__main__':
 
     password = input('输入密码:')
     password, cookies = encrypt_password(password, login_url)
-    print('encrypted password:', password)
+    print('加密后的密码:', password)
