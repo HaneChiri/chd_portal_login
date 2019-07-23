@@ -13,6 +13,7 @@ sys.path.append(BASE_DIR + '\\..')
 import json
 import requests
 from bs4 import BeautifulSoup
+import logging
 from portal_login.encrypt import *
 
 
@@ -52,7 +53,7 @@ def get_login_data(login_url, headers):
         '_eventId': _eventId,
         'rmShown': rmShown
     }
-
+    logging.debug('成功获取表单数据')
     return (login_data, response.cookies)
 
 
@@ -90,9 +91,9 @@ def save_cookies(cookies, output='cookies'):
         cookies = requests.utils.dict_from_cookiejar(cookies)
         with open(output, 'w') as fp:
             json.dump(cookies, fp)
-        print('保存cookies成功')
+        logging.info('保存cookies成功')
     except:
-        print('保存cookies失败')
+        logging.info('保存cookies失败')
 
 
 def load_cookies(input='cookies', check_url=None):
@@ -109,12 +110,12 @@ def load_cookies(input='cookies', check_url=None):
         check = check_cookies(check_url, headers=headers, cookies=cookies)
         if check == False:
             # 如果cookies无效，返回None
-            print('读取到无效的cookies')
+            logging.info('读取到无效的cookies')
             cookies = None
         elif check == True:
-            print('读取到有效的cookies')
+            logging.info('读取到有效的cookies')
         else:
-            print('读取到未检查有效性的cookies')
+            logging.info('读取到未检查有效性的cookies')
     except:
         cookies = None
     finally:
@@ -157,12 +158,12 @@ def login(login_url, headers, check_url=None, file_name=None):
     # 登录检查
     check = check_cookies(check_url, headers=headers, cookies=cookies)
     if check == True:
-        print("登录成功")
+        logging.info("登录成功")
         # 如果登录成功，且指定了保存的文件，则保存cookies以备下次使用
         if file_name != None:
             save_cookies(cookies, file_name)
     elif check == False:
-        print("登录失败")
+        logging.info("登录失败")
     else:
         pass
 
@@ -170,6 +171,7 @@ def login(login_url, headers, check_url=None, file_name=None):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     login_url = 'http://ids.chd.edu.cn/authserver/login?service=http%3A%2F%2Fportal.chd.edu.cn%2F'
     home_page_url = 'http://portal.chd.edu.cn/index.portal?.pn=p167'
     headers = {
