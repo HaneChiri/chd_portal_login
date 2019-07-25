@@ -1,5 +1,3 @@
-sco.html
-*.log
-bs4pra.py
-__pycache__/
-cookies
+*__pycache__/
+*cookies
+*score.xls
