@@ -15,6 +15,19 @@
   - `encrypt.py`
   - `login.py`
 
+## 核心API
+
+```python
+def login(login_url, headers, check_url=None, file_name=None):
+    '''
+    登录到CHD信息门户
+    :param login_url: 登录页面的url
+    :param headers: 使用的headers
+    :param check_url: 用于检查的url，尝试请求此页面并核对是否能请求到
+    :param file_name: 保存cookies的文件的路径，如果为None则不保存，用于读取和保存cookies
+    :return: 已登录的cookies
+    '''
+```
 ## 示例代码
 
 ### 运行示例
@@ -37,10 +50,10 @@ pip install pycryptodomex
 pip install pycryptodomex
 ```
 
-### 示例1 (原 `test.py`)
+### 示例1 
 
 ```python
-from portal_login.login import *
+from chd_portal_login.login import *
 if __name__ == '__main__':
     login_url = 'http://ids.chd.edu.cn/authserver/login?service=http%3A%2F%2Fportal.chd.edu.cn%2F'
     home_page_url = 'http://portal.chd.edu.cn/index.portal?.pn=p167'

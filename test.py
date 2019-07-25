@@ -6,7 +6,7 @@
 现在可用于获取自己所有学期成绩    
 '''
 import requests
-from portal_login.login import *
+from chd_portal_login.login import *
 from bs4 import BeautifulSoup as BS
 
 

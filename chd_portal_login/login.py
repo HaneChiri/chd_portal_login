@@ -14,7 +14,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 import logging
-from portal_login.encrypt import *
+from chd_portal_login.encrypt import *
 
 
 
