@@ -92,11 +92,11 @@ def save_cookies(cookies, output='cookies'):
         with open(output, 'w') as fp:
             json.dump(cookies, fp)
         logging.info('保存cookies成功')
-    except:
-        logging.info('保存cookies失败')
+    except Exception as e:
+        logging.info('保存cookies失败：'+ e.message)
 
 
-def load_cookies(input='cookies', check_url=None):
+def load_cookies(headers,input='cookies',check_url=None):
     '''
     从文件中读取cookies
     :param input: 输入文件的路径
@@ -116,8 +116,10 @@ def load_cookies(input='cookies', check_url=None):
             logging.info('读取到有效的cookies')
         else:
             logging.info('读取到未检查有效性的cookies')
-    except:
+    except Exception as e:
         cookies = None
+        logging.info('加载cookies时产生异常：'+e.message)
+        #print('加载cookies时产生异常：'+str(e))
     finally:
         return cookies
 
@@ -132,7 +134,7 @@ def login(login_url, headers, check_url=None, file_name=None):
     :return: 已登录的cookies
     '''
     if file_name != None and isinstance(file_name, str):
-        cookies = load_cookies(file_name, check_url)
+        cookies = load_cookies(headers,file_name, check_url)
         if cookies != None:
 
             return cookies
