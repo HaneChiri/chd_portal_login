@@ -70,7 +70,7 @@ if __name__ == '__main__':
         "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"
     }
-    cookies = login(login_url, headers, home_page_url)  #此函数最终返回一个cookies
+    cookies = login(login_url, headers, home_page_url,file_name='cookies')  #此函数最终返回一个cookies
     score_url='http://bkjw.chd.edu.cn/eams/teach/grade/course/person!historyCourseGrade.action?projectType=MAJOR'
     get_score(score_url,cookies=cookies,headers=headers)
     score_table=get_score(score_url,cookies=cookies,headers=headers)
