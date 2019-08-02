@@ -4,6 +4,8 @@
 
 当前版本：v1.0
 
+发行版本中含有源代码，以及打包好的一份成绩查询.exe文件，[点此处获取](https://github.com/HaneChiri/chd_portal_login/releases)
+
 ## 这个版本可以做什么
 
 - [x] 输入账号密码后，获得一个cookies，携带此cookies可以访问需要登录才能访问的界面。
